@@ -1,6 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-import { DateAudit } from '../base/date_audit.entity';
+import { DateAudit } from '../base/date-audit.entity';
 
 @Entity({ name: 'setting' })
 export class SettingEntity extends DateAudit {
@@ -10,8 +10,8 @@ export class SettingEntity extends DateAudit {
   @Column({ name: 'name', type: 'varchar', length: 100 })
   name: string;
 
-  @Column({ name: 'value', type: 'text' })
-  value: string;
+  @Column({ name: 'value', type: 'json' })
+  value: Record<string, any>;
 
   @Column({ name: 'type', type: 'varchar', length: 20, default: '' })
   type: string;
